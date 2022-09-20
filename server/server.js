@@ -5,7 +5,7 @@ const path = require("path");
 const router = require("./routes/api");
 
 const app = express();
-const PORT = process.env.port || 8080;
+const PORT = process.env.PORT || 8080;
 
 //connecting to mongodb
 // mongoose.connect("mongodb://127.0.0.1:27017/notesDB", { useNewUrlParser: true });
@@ -31,8 +31,8 @@ app.use('/api', router)
 
 
 if(process.env.NODE_ENV === "production"){
-    app.use(express.static("/Users/pulindu/Pulindu/Udemy/Dr Angela/React/note-react-node/client/build"))
+    app.use(express.static("../client/build"));
 }
 app.listen(PORT, () => {
-    console.log(`Server started on port ${8080}`);
+    console.log(`Server started on port ${PORT}`);
 })
